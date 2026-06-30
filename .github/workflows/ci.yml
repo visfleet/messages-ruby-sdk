@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 20
     strategy:
       matrix:
-        ruby: [ '2.4', '2.5', '2.6', '2.7', '3.0', '3.1' ]
+        ruby: [ '2.6', '2.7', '3.0', '3.1', '3.2', '3.3', '3.4', '4.0' ]
     steps:
       - name: Checkout messages-ruby-sdk
         uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-          
+
       - name: Build gem
         run: gem build *.gemspec
 
@@ -65,7 +65,7 @@ jobs:
       #    printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
       #    gem build *.gemspec
       #    gem push *.gem
-          
+
       - name: Publish to GPR
         run: |
          mkdir -p $HOME/.gem

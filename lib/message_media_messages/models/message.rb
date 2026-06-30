@@ -133,7 +133,7 @@ module MessageMediaMessages
       content = hash['content']
       destination_number = hash['destination_number']
       callback_url = hash['callback_url']
-      delivery_report = hash['delivery_report'] ||= false
+      delivery_report = hash['delivery_report'].nil? ? false : hash['delivery_report']
       format = hash['format']
       message_expiry_timestamp = APIHelper.rfc3339(hash['message_expiry_timestamp']) if
         hash['message_expiry_timestamp']

@@ -15,7 +15,6 @@ module MessageMediaMessages
         faraday.use Faraday::HttpCache, serializer: Marshal if cache
         faraday.request :multipart
         faraday.request :url_encoded
-        faraday.ssl[:ca_file] = Certifi.where
         faraday.options[:params_encoder] = Faraday::FlatParamsEncoder
         faraday.options[:open_timeout] = timeout if timeout
         faraday.request :retry, max: max_retries, interval: if max_retries &&

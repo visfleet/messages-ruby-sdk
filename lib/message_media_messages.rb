@@ -5,8 +5,10 @@
 
 require 'date'
 require 'json'
+require 'cgi/escape'
 require 'faraday'
-require 'certifi'
+require 'faraday/multipart'
+require 'faraday/retry'
 require 'logging'
 
 require_relative 'message_media_messages/api_helper.rb'

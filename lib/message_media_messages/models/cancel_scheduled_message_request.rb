@@ -26,7 +26,7 @@ module MessageMediaMessages
       return nil unless hash
 
       # Extract variables from the hash.
-      status = hash['status'] ||= 'cancelled'
+      status = hash['status'].nil? ? 'cancelled' : hash['status']
 
       # Create object from extracted values.
       CancelScheduledMessageRequest.new(status)
